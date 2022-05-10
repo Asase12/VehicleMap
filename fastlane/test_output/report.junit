@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='VehicleMapTests.xctest' tests='3' failures='0'>
+  <testsuite name='VehicleMapTests.VehicleListViewModelTests' tests='2' failures='0'>
+    <testcase classname='VehicleMapTests.VehicleListViewModelTests' name='testUpdateVehicleListWhenFail' time='0.003'/>
+    <testcase classname='VehicleMapTests.VehicleListViewModelTests' name='testUpdateVehicleListWhenSuccess' time='0.002'/>
+  </testsuite>
+  <testsuite name='VehicleMapTests.VehiclePresentationTests' tests='1' failures='0'>
+    <testcase classname='VehicleMapTests.VehiclePresentationTests' name='testVehiclePresentation' time='0.001'/>
+  </testsuite>
+</testsuites>

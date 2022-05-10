@@ -16,8 +16,26 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
+
+  desc "Runs all tests and verify current coverage"
+  lane :test do
+    run_tests(
+      scheme: "VehicleMap",
+      workspace: "VehicleMap.xcworkspace",
+      configuration: "Debug",
+      devices: ["iPhone 8 Plus"],
+      output_types: 'junit',
+      output_directory: "fastlane/test_output"
+    )
+
+    slather(
+      proj: "VehicleMap.xcodeproj",
+      workspace: "VehicleMap.xcworkspace",
+      scheme: "VehicleMap",
+      output_directory: "fastlane/coverage_output",
+      cobertura_xml: true,
+      ignore: ["VehicleMapTests/*"],
+    )
   end
+
 end
