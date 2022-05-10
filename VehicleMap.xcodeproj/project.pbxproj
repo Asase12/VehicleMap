@@ -13,6 +13,7 @@
 		5891D198282AC1B600318B0D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891D197282AC1B600318B0D /* APIError.swift */; };
 		5891D19E282AC97D00318B0D /* FakeVehicleListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891D19D282AC97D00318B0D /* FakeVehicleListService.swift */; };
 		5891D1A0282ACB3000318B0D /* VehiclePresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891D19F282ACB3000318B0D /* VehiclePresentation.swift */; };
+		5891D1A3282AD8EF00318B0D /* VehiclePresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891D1A2282AD8EF00318B0D /* VehiclePresentationTests.swift */; };
 		58E1E8F128297D740064FEED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1E8F028297D740064FEED /* AppDelegate.swift */; };
 		58E1E8F328297D740064FEED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1E8F228297D740064FEED /* SceneDelegate.swift */; };
 		58E1E8F528297D740064FEED /* VehicleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1E8F428297D740064FEED /* VehicleListViewController.swift */; };
@@ -40,6 +41,7 @@
 		5891D197282AC1B600318B0D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		5891D19D282AC97D00318B0D /* FakeVehicleListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeVehicleListService.swift; sourceTree = "<group>"; };
 		5891D19F282ACB3000318B0D /* VehiclePresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePresentation.swift; sourceTree = "<group>"; };
+		5891D1A2282AD8EF00318B0D /* VehiclePresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePresentationTests.swift; sourceTree = "<group>"; };
 		58E1E8ED28297D740064FEED /* VehicleMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VehicleMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E1E8F028297D740064FEED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58E1E8F228297D740064FEED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		5891D187282AB45300318B0D /* VehicleList */ = {
 			isa = PBXGroup;
 			children = (
+				5891D1A1282AD8E000318B0D /* Models */,
 				5891D19C282AC96B00318B0D /* Fakes */,
 				5891D188282AB4CD00318B0D /* ViewModels */,
 			);
@@ -104,6 +107,14 @@
 				5891D19D282AC97D00318B0D /* FakeVehicleListService.swift */,
 			);
 			path = Fakes;
+			sourceTree = "<group>";
+		};
+		5891D1A1282AD8E000318B0D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5891D1A2282AD8EF00318B0D /* VehiclePresentationTests.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		58E1E8E428297D740064FEED = {
@@ -357,6 +368,7 @@
 			files = (
 				58E1E90828297D780064FEED /* VehicleListViewModelTests.swift in Sources */,
 				5891D19E282AC97D00318B0D /* FakeVehicleListService.swift in Sources */,
+				5891D1A3282AD8EF00318B0D /* VehiclePresentationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
