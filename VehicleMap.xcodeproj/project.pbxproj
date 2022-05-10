@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30B0AF0920DC07DB11003985 /* Pods_VehicleMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD71E21FD8D02659BEAB078F /* Pods_VehicleMap.framework */; };
 		5891D18B282AB5EF00318B0D /* VehicleListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891D18A282AB5EF00318B0D /* VehicleListService.swift */; };
+		5891D190282ABB3A00318B0D /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891D18F282ABB3A00318B0D /* Vehicle.swift */; };
+		5891D193282AC0E400318B0D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5891D192282AC0E400318B0D /* Alamofire */; };
+		5891D198282AC1B600318B0D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891D197282AC1B600318B0D /* APIError.swift */; };
 		58E1E8F128297D740064FEED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1E8F028297D740064FEED /* AppDelegate.swift */; };
 		58E1E8F328297D740064FEED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1E8F228297D740064FEED /* SceneDelegate.swift */; };
 		58E1E8F528297D740064FEED /* VehicleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1E8F428297D740064FEED /* VehicleListViewController.swift */; };
@@ -31,8 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		33E3166CCB44D269E8D10EF5 /* Pods-VehicleMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VehicleMap.debug.xcconfig"; path = "Target Support Files/Pods-VehicleMap/Pods-VehicleMap.debug.xcconfig"; sourceTree = "<group>"; };
 		5891D18A282AB5EF00318B0D /* VehicleListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListService.swift; sourceTree = "<group>"; };
+		5891D18F282ABB3A00318B0D /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		5891D197282AC1B600318B0D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		58E1E8ED28297D740064FEED /* VehicleMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VehicleMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E1E8F028297D740064FEED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58E1E8F228297D740064FEED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,8 +48,6 @@
 		58E1E92728297EF10064FEED /* VehicleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListViewModel.swift; sourceTree = "<group>"; };
 		58E1E92B28297FF10064FEED /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		58F0EF562829848800922E06 /* VehicleListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleListViewController.xib; sourceTree = "<group>"; };
-		BD71E21FD8D02659BEAB078F /* Pods_VehicleMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VehicleMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C44CD1A1A24614AB9729F7D3 /* Pods-VehicleMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VehicleMap.release.xcconfig"; path = "Target Support Files/Pods-VehicleMap/Pods-VehicleMap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30B0AF0920DC07DB11003985 /* Pods_VehicleMap.framework in Frameworks */,
+				5891D193282AC0E400318B0D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,15 +69,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		41381C64DC7F6FB7DF693AB1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				33E3166CCB44D269E8D10EF5 /* Pods-VehicleMap.debug.xcconfig */,
-				C44CD1A1A24614AB9729F7D3 /* Pods-VehicleMap.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		5891D187282AB45300318B0D /* VehicleList */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,8 +99,6 @@
 				58E1E8EF28297D740064FEED /* VehicleMap */,
 				58E1E90628297D780064FEED /* VehicleMapTests */,
 				58E1E8EE28297D740064FEED /* Products */,
-				41381C64DC7F6FB7DF693AB1 /* Pods */,
-				C23D2664231D32115723723E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,6 +188,8 @@
 		58E1E92628297ED20064FEED /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5891D197282AC1B600318B0D /* APIError.swift */,
+				5891D18F282ABB3A00318B0D /* Vehicle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -226,14 +218,6 @@
 			path = Xibs;
 			sourceTree = "<group>";
 		};
-		C23D2664231D32115723723E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BD71E21FD8D02659BEAB078F /* Pods_VehicleMap.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -241,17 +225,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58E1E91728297D780064FEED /* Build configuration list for PBXNativeTarget "VehicleMap" */;
 			buildPhases = (
-				C09F73D853ABE86C4D611053 /* [CP] Check Pods Manifest.lock */,
 				58E1E8E928297D740064FEED /* Sources */,
 				58E1E8EA28297D740064FEED /* Frameworks */,
 				58E1E8EB28297D740064FEED /* Resources */,
-				C6E8E9CCF0A1D0F7C4DBAEB4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = VehicleMap;
+			packageProductDependencies = (
+				5891D192282AC0E400318B0D /* Alamofire */,
+			);
 			productName = VehicleMap;
 			productReference = 58E1E8ED28297D740064FEED /* VehicleMap.app */;
 			productType = "com.apple.product-type.application";
@@ -302,6 +287,9 @@
 				Base,
 			);
 			mainGroup = 58E1E8E428297D740064FEED;
+			packageReferences = (
+				5891D191282AC0E400318B0D /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 58E1E8EE28297D740064FEED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -332,48 +320,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		C09F73D853ABE86C4D611053 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VehicleMap-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C6E8E9CCF0A1D0F7C4DBAEB4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VehicleMap/Pods-VehicleMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VehicleMap/Pods-VehicleMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VehicleMap/Pods-VehicleMap-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		58E1E8E928297D740064FEED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -383,6 +329,8 @@
 				58E1E92828297EF10064FEED /* VehicleListViewModel.swift in Sources */,
 				5891D18B282AB5EF00318B0D /* VehicleListService.swift in Sources */,
 				58E1E92C28297FF10064FEED /* UIViewControllerExtension.swift in Sources */,
+				5891D190282ABB3A00318B0D /* Vehicle.swift in Sources */,
+				5891D198282AC1B600318B0D /* APIError.swift in Sources */,
 				58E1E8F128297D740064FEED /* AppDelegate.swift in Sources */,
 				58E1E8F328297D740064FEED /* SceneDelegate.swift in Sources */,
 			);
@@ -534,7 +482,6 @@
 		};
 		58E1E91828297D780064FEED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33E3166CCB44D269E8D10EF5 /* Pods-VehicleMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -562,7 +509,6 @@
 		};
 		58E1E91928297D780064FEED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C44CD1A1A24614AB9729F7D3 /* Pods-VehicleMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -655,6 +601,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5891D191282AC0E400318B0D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5891D192282AC0E400318B0D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5891D191282AC0E400318B0D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 58E1E8E528297D740064FEED /* Project object */;
 }

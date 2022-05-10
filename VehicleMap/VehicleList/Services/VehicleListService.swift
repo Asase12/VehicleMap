@@ -9,7 +9,12 @@ import Foundation
 import Alamofire
 
 protocol VehicleListFetching {
+    func fetchVehicleList(completion: ([Vehicle], APIError?) -> Void)
 }
 
 struct VehicleListService: VehicleListFetching {
+
+    func fetchVehicleList(completion: ([Vehicle], APIError?) -> Void) {
+        //
+    }
 }
