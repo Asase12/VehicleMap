@@ -11,6 +11,8 @@ class VehicleListViewController: UIViewController {
 
     // MARK: - Properties
 
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+
     private(set) var viewModel: VehicleListViewPresenting!
 
     // MARK: - View life cycle
@@ -18,9 +20,12 @@ class VehicleListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Vehicle Map"
-        viewModel.updateVehicleList { vehicles, apiError in
-            print("\nVehicleListViewController: apiError = \(apiError),\nvehicles = \(vehicles)\n")
-        }
+        let refreshImage = UIImage(systemName: "arrow.clockwise")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: refreshImage,
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(refreshButtonTap))
+        refreshContent()
     }
 
     // MARK: - IBActions
@@ -28,6 +33,20 @@ class VehicleListViewController: UIViewController {
     // MARK: - Functions
 
     // MARK: - Private functions
+
+    private func refreshContent() {
+        activityIndicator.startAnimating()
+        viewModel.updateVehicleList { [weak self] vehicles, apiError in
+            print("\nVehicleListViewController: apiError = \(String(describing: apiError)),\nvehicles = \(vehicles)\n")
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+            }
+        }
+    }
+
+    @objc private func refreshButtonTap() {
+        refreshContent()
+    }
 }
 
 extension VehicleListViewController {

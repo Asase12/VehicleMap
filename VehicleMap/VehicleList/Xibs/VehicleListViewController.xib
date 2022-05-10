@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VehicleListViewController" customModule="VehicleMap" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="ZWZ-LG-SWx" id="1hq-UH-jc4"/>
                 <outlet property="view" destination="iN0-l3-epB" id="trh-oO-S5T"/>
             </connections>
         </placeholder>
@@ -18,14 +19,27 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <activityIndicatorView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ZWZ-LG-SWx">
+                    <rect key="frame" x="197" y="358" width="20" height="20"/>
+                    <color key="color" systemColor="systemGray2Color"/>
+                </activityIndicatorView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ZWZ-LG-SWx" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="8bF-Qw-eRo"/>
+                <constraint firstItem="ZWZ-LG-SWx" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="jo1-4Q-fx5"/>
+            </constraints>
             <point key="canvasLocation" x="139" y="133"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
