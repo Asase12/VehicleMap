@@ -17,6 +17,9 @@ class VehicleListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.updateVehicleList { vehicles, apiError in
+            print("\nVehicleListViewController: apiError = \(apiError),\nvehicles = \(vehicles)\n")
+        }
     }
 
     // MARK: - IBActions

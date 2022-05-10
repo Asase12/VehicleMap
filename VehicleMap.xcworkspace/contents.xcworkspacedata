@@ -4,7 +4,4 @@
    <FileRef
       location = "container:VehicleMap.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:VehicleMap.xcodeproj">
-   </FileRef>
 </Workspace>

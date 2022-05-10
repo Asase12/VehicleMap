@@ -8,6 +8,6 @@
 import Foundation
 
 enum APIError: LocalizedError, Equatable {
-    case invalidRequestError(String)
-    case defaultError
+    case invalidData(String)
+    case defaultError(String)
 }

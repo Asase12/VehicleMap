@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum VehicleType: String, Decodable {
     case eScooter = "escooter"
@@ -20,6 +21,7 @@ struct VehicleRaw: Decodable {
 struct Vehicle: Decodable {
     var id: String
     var type: String
+    var attributes: VehicleAttributes
 }
 
 struct VehicleAttributes: Decodable {

@@ -12,20 +12,59 @@ import XCTest
 class VehicleListViewModelTests: XCTestCase {
 
     var viewModel: VehicleListViewModel!
+    var service: FakeVehicleService!
 
     override func setUpWithError() throws {
-        viewModel = VehicleListViewModel()
+        service = FakeVehicleService()
+        viewModel = VehicleListViewModel(using: service)
     }
 
     override func tearDownWithError() throws {
+        service = nil
         viewModel = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testUpdateVehicleListWhenSuccess() throws {
+        service.vehicles = [FakeVehicleService.fakeVehicles[0]]
+
+        let expectation = expectation(description: "Update Vehicle list Items when request is successful")
+        var apiError: APIError?
+        var vehicles = [VehiclePresentation]()
+        viewModel.updateVehicleList { vehicleList, error in
+            apiError = error
+            vehicles = vehicleList
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 5)
+
+        XCTAssertNil(apiError)
+        XCTAssertEqual(vehicles.count, 1)
+
+        XCTAssertEqual(vehicles[0].id, "10")
+        XCTAssertEqual(vehicles[0].type, .eScooter)
+        XCTAssertEqual(vehicles[0].distance, "")
+        XCTAssertEqual(vehicles[0].batteryLevel, "100")
+        XCTAssertEqual(vehicles[0].hasHelmetBox, false)
+        XCTAssertEqual(vehicles[0].vehicleName, "E-Scooter")
+    }
+
+    func testUpdateVehicleListWhenFail() throws {
+        let errorDescription = "Some error occurred..."
+        service.apiError = APIError.defaultError(errorDescription)
+
+        let expectation = expectation(description: "Update Vehicle list Items when request is successful")
+        var apiError: APIError?
+        var vehicles = [VehiclePresentation]()
+        viewModel.updateVehicleList { vehicleList, error in
+            apiError = error
+            vehicles = vehicleList
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 5)
+
+        XCTAssertEqual(apiError, APIError.defaultError(errorDescription))
+        XCTAssertEqual(vehicles.count, 0)
     }
 }

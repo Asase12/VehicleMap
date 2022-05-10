@@ -16,7 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let viewModel = VehicleListViewModel()
+        let service = VehicleListService()
+        let viewModel = VehicleListViewModel(using: service)
         let vehicleListViewController = VehicleListViewController.create(with: viewModel)
         let navigationViewController = UINavigationController(rootViewController: vehicleListViewController)
         window?.rootViewController = navigationViewController
