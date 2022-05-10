@@ -26,7 +26,7 @@ class VehicleListViewModelTests: XCTestCase {
 
     func testInitialVehiclePresentation() {
         XCTAssertEqual(viewModel.vehiclePresentations.count, 0)
-    }
+    } 
 
     func testUpdateVehicleListWhenSuccess() throws {
         service.vehicles = [FakeVehicleService.fakeVehicles[0]]
