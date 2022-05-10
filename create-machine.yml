@@ -1,0 +1,14 @@
+steps:
+
+# Selects custom XCode version
+- script: |
+    echo "Current Xcode version:"
+    /usr/bin/xcodebuild -version
+    sudo xcode-select -s /Applications/Xcode_13.3.1.app
+    echo "Xcode version changed to:"
+    /usr/bin/xcodebuild -version
+  displayName: 'Select Xcode 13.3.1'
+
+- script: |
+    bundle install
+  displayName: 'Bundle install'
