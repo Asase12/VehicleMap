@@ -17,6 +17,7 @@ class VehicleListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Vehicle Map"
         viewModel.updateVehicleList { vehicles, apiError in
             print("\nVehicleListViewController: apiError = \(apiError),\nvehicles = \(vehicles)\n")
         }
