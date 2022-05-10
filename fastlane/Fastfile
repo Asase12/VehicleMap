@@ -34,7 +34,7 @@ platform :ios do
       scheme: "VehicleMap",
       output_directory: "fastlane/coverage_output",
       cobertura_xml: true,
-      ignore: ["VehicleMapTests/*, SourcePackages/*"],
+      ignore: ["VehicleMapTests/*, DerivedData/*"],
     )
   end
 
