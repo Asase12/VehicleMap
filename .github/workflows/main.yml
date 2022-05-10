@@ -1,0 +1,45 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+trigger:
+  branches:
+    include:
+    - master
+
+pr:
+autoCancel: true
+branches:
+  include:
+  - '*'
+
+variables:
+- group: iOS
+- name: BUNDLE_PATH
+  value: $(Pipeline.Workspace)/.bundle
+
+stages:
+- stage: macOS
+  jobs:
+  - job: Test_App
+    timeoutInMinutes: 120
+    steps:
+
+    - template: templates/create-machine.yml
+
+    - script: |
+          bundle exec fastlane test
+        displayName: 'Test VehicleMap'
+
+    - task: PublishTestResults@2
+        inputs:
+          testResultsFormat: JUnit
+          testResultsFiles: 'report.junit' 
+          searchFolder: '$(System.DefaultWorkingDirectory)/fastlane/test_output'
+        displayName: 'Publish Test Results'
+
+    - task: PublishCodeCoverageResults@1
+        inputs:
+          codeCoverageTool: cobertura
+          summaryFileLocation: '$(System.DefaultWorkingDirectory)/fastlane/coverage_output/cobertura.xml'
+        displayName: 'Publish Code Coverage'
