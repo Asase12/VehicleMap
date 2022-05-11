@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import MapKit
 
 protocol VehicleListViewPresenting {
-
+    var vehiclePresentations: [VehiclePresentation] { get }
+    
     func updateVehicleList(completion: @escaping ([VehiclePresentation], APIError?) -> Void)
 }
 
@@ -46,7 +48,9 @@ extension VehicleListViewModel: VehicleListViewPresenting {
                                     type: $0.attributes.vehicleType,
                                     distance: "",
                                     batteryLevel: "\(Int($0.attributes.batteryLevel))",
-                                    hasHelmetBox: $0.attributes.hasHelmetBox)
+                                    hasHelmetBox: $0.attributes.hasHelmetBox,
+                                    coordinates: CLLocationCoordinate2D(latitude: $0.attributes.latitude,
+                                                                        longitude: $0.attributes.latitude))
             }
             completion(self.vehiclePresentations, nil)
         }

@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import MapKit
 
 @testable import VehicleMap
 
@@ -14,7 +15,12 @@ class VehiclePresentationTests: XCTestCase {
     var presentation: VehiclePresentation!
 
     override func setUpWithError() throws {
-        presentation = VehiclePresentation(id: "some id", type: .eScooter, distance: "27 meters", batteryLevel: "82", hasHelmetBox: true)
+        presentation = VehiclePresentation(id: "some id",
+                                           type: .eScooter,
+                                           distance: "27 meters",
+                                           batteryLevel: "82",
+                                           hasHelmetBox: true,
+                                           coordinates: CLLocationCoordinate2D(latitude: 52.64, longitude: 42.07))
     }
 
     override func tearDownWithError() throws {

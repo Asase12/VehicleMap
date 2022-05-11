@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 import UIKit
 
 struct VehiclePresentation {
@@ -14,6 +15,7 @@ struct VehiclePresentation {
     var distance: String
     var batteryLevel: String
     let hasHelmetBox: Bool
+    let coordinates: CLLocationCoordinate2D
 
     var vehicleName: String {
         switch type {
@@ -29,11 +31,11 @@ struct VehiclePresentation {
     var image: UIImage? {
         switch type {
         case .eScooter:
-            return UIImage(systemName: "scooter")
+            return UIImage(named: "scooter")
         case .eMoped:
-            return UIImage(systemName: "moped")
+            return UIImage(named: "moped")
         case .eBicycle:
-            return UIImage(systemName: "bicycle")
+            return UIImage(named: "bicycle")
         }
     }
 }

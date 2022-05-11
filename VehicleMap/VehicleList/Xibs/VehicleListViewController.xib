@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VehicleListViewController" customModule="VehicleMap" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="ZWZ-LG-SWx" id="1hq-UH-jc4"/>
+                <outlet property="mapView" destination="QSh-fq-9xB" id="Ycy-4T-7ch"/>
                 <outlet property="view" destination="iN0-l3-epB" id="trh-oO-S5T"/>
             </connections>
         </placeholder>
@@ -20,6 +21,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QSh-fq-9xB">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                </mapView>
                 <activityIndicatorView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ZWZ-LG-SWx">
                     <rect key="frame" x="197" y="358" width="20" height="20"/>
                     <color key="color" systemColor="systemGray2Color"/>
@@ -28,10 +32,14 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="QSh-fq-9xB" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="6dG-nN-L9S"/>
                 <constraint firstItem="ZWZ-LG-SWx" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="8bF-Qw-eRo"/>
+                <constraint firstItem="QSh-fq-9xB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="AnE-jy-rri"/>
+                <constraint firstItem="QSh-fq-9xB" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Ml8-Cx-lw7"/>
                 <constraint firstItem="ZWZ-LG-SWx" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="jo1-4Q-fx5"/>
+                <constraint firstItem="QSh-fq-9xB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="p9G-9R-JoX"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="133"/>
+            <point key="canvasLocation" x="137.68115942028987" y="132.88043478260872"/>
         </view>
     </objects>
     <resources>
