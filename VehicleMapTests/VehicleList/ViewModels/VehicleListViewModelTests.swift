@@ -25,7 +25,7 @@ class VehicleListViewModelTests: XCTestCase {
     }
 
     func testUpdateVehicleListWhenSuccess() throws {
-        service.vehicles = [FakeVehicleService.fakeVehicles[0]]
+        service.vehicles = [Fixtures.fakeVehicles[0]]
 
         let expectation = expectation(description: "Update Vehicle list Items when request is successful")
         var apiError: APIError?

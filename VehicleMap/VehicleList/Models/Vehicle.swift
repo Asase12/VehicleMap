@@ -8,23 +8,23 @@
 import Foundation
 import UIKit
 
-enum VehicleType: String, Decodable {
+enum VehicleType: String, Codable {
     case eScooter = "escooter"
     case eMoped = "emoped"
     case eBicycle = "ebicycle"
 }
 
-struct VehicleRaw: Decodable {
+struct VehicleRaw: Codable {
     var data: [Vehicle]
 }
 
-struct Vehicle: Decodable {
+struct Vehicle: Codable {
     var id: String
     var type: String
     var attributes: VehicleAttributes
 }
 
-struct VehicleAttributes: Decodable {
+struct VehicleAttributes: Codable {
     var batteryLevel: Double
     var latitude: Double
     var longitude: Double
