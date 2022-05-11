@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5890154D282BE1C70098862C /* VehicleDataDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890154C282BE1C70098862C /* VehicleDataDecodingTests.swift */; };
+		5890154F282BE3050098862C /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890154E282BE3050098862C /* Fixtures.swift */; };
 		5891D18B282AB5EF00318B0D /* VehicleListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891D18A282AB5EF00318B0D /* VehicleListService.swift */; };
 		5891D190282ABB3A00318B0D /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891D18F282ABB3A00318B0D /* Vehicle.swift */; };
 		5891D193282AC0E400318B0D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5891D192282AC0E400318B0D /* Alamofire */; };
@@ -14,6 +16,7 @@
 		5891D19E282AC97D00318B0D /* FakeVehicleListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891D19D282AC97D00318B0D /* FakeVehicleListService.swift */; };
 		5891D1A0282ACB3000318B0D /* VehiclePresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891D19F282ACB3000318B0D /* VehiclePresentation.swift */; };
 		5891D1A3282AD8EF00318B0D /* VehiclePresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891D1A2282AD8EF00318B0D /* VehiclePresentationTests.swift */; };
+		5891D1AE282B30A800318B0D /* VehicleDataDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891D1AD282B30A800318B0D /* VehicleDataDecoding.swift */; };
 		58E1E8F128297D740064FEED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1E8F028297D740064FEED /* AppDelegate.swift */; };
 		58E1E8F328297D740064FEED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1E8F228297D740064FEED /* SceneDelegate.swift */; };
 		58E1E8F528297D740064FEED /* VehicleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1E8F428297D740064FEED /* VehicleListViewController.swift */; };
@@ -36,12 +39,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5890154C282BE1C70098862C /* VehicleDataDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDataDecodingTests.swift; sourceTree = "<group>"; };
+		5890154E282BE3050098862C /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		5891D18A282AB5EF00318B0D /* VehicleListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListService.swift; sourceTree = "<group>"; };
 		5891D18F282ABB3A00318B0D /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		5891D197282AC1B600318B0D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		5891D19D282AC97D00318B0D /* FakeVehicleListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeVehicleListService.swift; sourceTree = "<group>"; };
 		5891D19F282ACB3000318B0D /* VehiclePresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePresentation.swift; sourceTree = "<group>"; };
 		5891D1A2282AD8EF00318B0D /* VehiclePresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePresentationTests.swift; sourceTree = "<group>"; };
+		5891D1AD282B30A800318B0D /* VehicleDataDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDataDecoding.swift; sourceTree = "<group>"; };
 		58E1E8ED28297D740064FEED /* VehicleMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VehicleMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E1E8F028297D740064FEED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58E1E8F228297D740064FEED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,10 +81,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5890154B282BE1AF0098862C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5890154C282BE1C70098862C /* VehicleDataDecodingTests.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		5891D187282AB45300318B0D /* VehicleList */ = {
 			isa = PBXGroup;
 			children = (
 				5891D1A1282AD8E000318B0D /* Models */,
+				5890154B282BE1AF0098862C /* Protocols */,
 				5891D19C282AC96B00318B0D /* Fakes */,
 				5891D188282AB4CD00318B0D /* ViewModels */,
 			);
@@ -105,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				5891D19D282AC97D00318B0D /* FakeVehicleListService.swift */,
+				5890154E282BE3050098862C /* Fixtures.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -115,6 +131,14 @@
 				5891D1A2282AD8EF00318B0D /* VehiclePresentationTests.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5891D1AC282B309C00318B0D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5891D1AD282B30A800318B0D /* VehicleDataDecoding.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		58E1E8E428297D740064FEED = {
@@ -185,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				58E1E92628297ED20064FEED /* Models */,
+				5891D1AC282B309C00318B0D /* Protocols */,
 				5891D189282AB59200318B0D /* Services */,
 				58E1E92528297ECA0064FEED /* ViewModels */,
 				58E1E92428297EBE0064FEED /* ViewControllers */,
@@ -359,6 +384,7 @@
 				5891D198282AC1B600318B0D /* APIError.swift in Sources */,
 				58E1E8F128297D740064FEED /* AppDelegate.swift in Sources */,
 				58E1E8F328297D740064FEED /* SceneDelegate.swift in Sources */,
+				5891D1AE282B30A800318B0D /* VehicleDataDecoding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +395,8 @@
 				58E1E90828297D780064FEED /* VehicleListViewModelTests.swift in Sources */,
 				5891D19E282AC97D00318B0D /* FakeVehicleListService.swift in Sources */,
 				5891D1A3282AD8EF00318B0D /* VehiclePresentationTests.swift in Sources */,
+				5890154F282BE3050098862C /* Fixtures.swift in Sources */,
+				5890154D282BE1C70098862C /* VehicleDataDecodingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +458,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -490,6 +519,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
