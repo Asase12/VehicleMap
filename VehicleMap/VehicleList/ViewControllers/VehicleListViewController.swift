@@ -56,6 +56,7 @@ class VehicleListViewController: UIViewController, MapViewViewRendering {
 
     private func refreshContent() {
         activityIndicator.startAnimating()
+        viewModel.resetSelection()
         viewModel.updateVehicleList { vehicles, apiError in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
@@ -70,7 +71,6 @@ class VehicleListViewController: UIViewController, MapViewViewRendering {
     }
 
     @objc private func refreshButtonTap() {
-        viewModel.resetSelection()
         refreshContent()
     }
 
@@ -136,6 +136,13 @@ extension VehicleListViewController: VehicleListViewControllerPresentable {
         let closestVehicleAnnotation = mapView.annotations.compactMap { $0 as? VehicleAnnotation }
                                                           .first(where: { $0.vehicleId == vehicleId })
         closestVehicleAnnotation?.focused = true
+    }
+
+    func presentErrorAlert(with errorDescription: String) {
+        let alert = UIAlertController(title: "Error", message: errorDescription, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Close", style: .cancel)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
     }
 }
 

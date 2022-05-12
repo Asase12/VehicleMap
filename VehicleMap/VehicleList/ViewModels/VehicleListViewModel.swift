@@ -10,6 +10,18 @@ import MapKit
 import CoreLocation
 import UIKit
 
+struct ErrorDescriptions {
+
+    static let invalidUserLocation = """
+                Could not detect your location.
+                Please check location permission is enabled
+                """
+    static let locationServicesDisabled = """
+            Location Services are disabled.
+            Please, switch them on in Settings
+            """
+}
+
 protocol VehicleListViewPresenting {
     var vehiclePresentations: [VehiclePresentation] { get }
     var closestVehicle: VehiclePresentation? { get }
@@ -55,6 +67,7 @@ protocol LocationPermissionModifier {
 
 protocol VehicleListViewControllerPresentable: AnyObject {
     func updateClosestVehicle(with vehicleId: String)
+    func presentErrorAlert(with errorDescription: String)
 }
 
 final class VehicleListViewModel: DistanceCalculating {
@@ -74,9 +87,7 @@ final class VehicleListViewModel: DistanceCalculating {
 
     private(set) var userLocation: CLLocation? {
         didSet {
-            guard let userLocation = userLocation else {
-                return
-            }
+            guard let userLocation = userLocation else { return }
             updateClosestVehicle(for: userLocation)
         }
     }
@@ -102,25 +113,20 @@ extension VehicleListViewModel: VehicleListViewPresenting {
 
     func updateVehicleList(completion: @escaping ([VehiclePresentation], APIError?) -> Void) {
         service.fetchVehicleList { [weak self] vehicleList, apiError in
+            guard let self = self else { return }
             if let apiError = apiError {
+                self.closestVehicleManager?.presentErrorAlert(with: apiError.localizedDescription)
                 completion([], apiError)
                 return
             }
-            guard let self = self else { return }
             self.vehicleList = vehicleList
             self.vehiclePresentations = vehicleList.map {
                 VehiclePresentation(id: $0.id,
                                     coordinates: CLLocationCoordinate2D(latitude: $0.attributes.latitude,
                                                                         longitude: $0.attributes.longitude))
             }
-            if let userLocation = self.userLocation,
-               let closestVehicleRaw = self.closestVehicle(to: userLocation, from: self.vehicleList) {
-                self.closestVehicle = VehiclePresentation(id: closestVehicleRaw.id,
-                                                          coordinates: CLLocationCoordinate2D(latitude: closestVehicleRaw.attributes.latitude,
-                                                                                              longitude: closestVehicleRaw.attributes.longitude))
-                self.closestVehicleDetailInfo = self.convertToVehicleDetailInfo(closestVehicleRaw, with: userLocation)
-            } else {
-                // TODO: show error
+            if let userLocation = self.userLocation {
+                self.updateClosestVehicle(for: userLocation)
             }
             completion(self.vehiclePresentations, nil)
         }
@@ -138,7 +144,10 @@ extension VehicleListViewModel: VehicleSelecting {
             return nil
         }
         self.selectedVehicle = selectedVehicle
-        let userLocation = CLLocation(latitude: 52.5, longitude: 13.5) // TODO: change to real
+        guard let userLocation = self.userLocation else {
+            self.closestVehicleManager?.presentErrorAlert(with: ErrorDescriptions.invalidUserLocation)
+            return nil
+        }
         return convertToVehicleDetailInfo(selectedVehicle, with: userLocation)
     }
 
@@ -176,7 +185,9 @@ extension VehicleListViewModel: ClosestVehicle {
         closestVehicleDetailInfo = convertToVehicleDetailInfo(closestVehicleRaw, with: userLocation)
 
         guard selectedVehicle == nil else { return }
-        closestVehicleManager?.updateClosestVehicle(with: closestVehicleRaw.id)
+        DispatchQueue.main.async { [weak self] in
+            self?.closestVehicleManager?.updateClosestVehicle(with: closestVehicleRaw.id)
+        }
     }
 }
 
@@ -184,7 +195,7 @@ extension VehicleListViewModel: LocationPermissionModifier {
 
     func requestLocationPermission() {
         guard locationServicesEnabled else {
-            // TODO: show error
+            closestVehicleManager?.presentErrorAlert(with: ErrorDescriptions.locationServicesDisabled)
             return
         }
         locationPermissionManager.requestPermission()
