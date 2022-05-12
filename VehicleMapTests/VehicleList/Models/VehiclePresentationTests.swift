@@ -16,10 +16,6 @@ class VehiclePresentationTests: XCTestCase {
 
     override func setUpWithError() throws {
         presentation = VehiclePresentation(id: "some id",
-                                           type: .eScooter,
-                                           distance: "27 meters",
-                                           batteryLevel: "82",
-                                           hasHelmetBox: true,
                                            coordinates: CLLocationCoordinate2D(latitude: 52.64, longitude: 42.07))
     }
 
@@ -29,9 +25,8 @@ class VehiclePresentationTests: XCTestCase {
 
     func testVehiclePresentation() throws {
         XCTAssertEqual(presentation.id, "some id")
-        XCTAssertEqual(presentation.type, .eScooter)
-        XCTAssertEqual(presentation.distance, "27 meters")
-        XCTAssertEqual(presentation.batteryLevel, "82")
-        XCTAssertEqual(presentation.hasHelmetBox, true)
+        XCTAssertEqual(presentation.coordinates.latitude, 52.64)
+        XCTAssertEqual(presentation.coordinates.longitude, 42.07)
     }
 }
+

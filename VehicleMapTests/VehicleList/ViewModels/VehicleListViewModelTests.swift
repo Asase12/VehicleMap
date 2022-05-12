@@ -42,11 +42,8 @@ class VehicleListViewModelTests: XCTestCase {
         XCTAssertEqual(vehicles.count, 1)
 
         XCTAssertEqual(vehicles[0].id, "10")
-        XCTAssertEqual(vehicles[0].type, .eScooter)
-        XCTAssertEqual(vehicles[0].distance, "")
-        XCTAssertEqual(vehicles[0].batteryLevel, "100")
-        XCTAssertEqual(vehicles[0].hasHelmetBox, false)
-        XCTAssertEqual(vehicles[0].vehicleName, "E-Scooter")
+        XCTAssertEqual(vehicles[0].coordinates.latitude, 52.52)
+        XCTAssertEqual(vehicles[0].coordinates.longitude, 13.37)
     }
 
     func testUpdateVehicleListWhenFail() throws {

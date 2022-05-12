@@ -14,8 +14,11 @@ class VehicleListViewController: UIViewController, MapViewViewRendering {
 
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var vehicleLabel: UILabel!
+    @IBOutlet private weak var batteryLabel: UILabel!
 
-    private(set) var viewModel: VehicleListViewPresenting!
+    private(set) var viewModel: (VehicleListViewPresenting & VehicleSelecting)!
 
     // MARK: - View life cycle
 
@@ -58,12 +61,21 @@ class VehicleListViewController: UIViewController, MapViewViewRendering {
                 self.clearAll(on: self.mapView)
                 self.activityIndicator.stopAnimating()
                 self.present(vehicles, on: self.mapView)
+                if let detailInfo = self.viewModel.closestVehicleDetailInfo {
+                    self.updateDetailPresentationInfo(with: detailInfo)
+                }
             }
         }
     }
 
     @objc private func refreshButtonTap() {
         refreshContent()
+    }
+
+    private func updateDetailPresentationInfo(with detailInfo: VehicleDetailInfo) {
+        imageView.image = detailInfo.image
+        vehicleLabel.text = detailInfo.vehicleDescription
+        batteryLabel.text = detailInfo.batteryLevelDescription
     }
 }
 
@@ -73,8 +85,7 @@ extension VehicleListViewController: MKMapViewDelegate {
         switch annotation {
         case is VehicleAnnotation:
             guard let vehicleAnnotation = annotation as? VehicleAnnotation,
-                  // TODO: move the func to viewModel
-                  let image = viewModel.vehiclePresentations.first(where: { $0.id == vehicleAnnotation.vehicleId })?.image else {
+                  let image = viewModel.image(for: vehicleAnnotation.vehicleId) else {
                 return nil
             }
             let annotationView = vehicleAnnotationView(from: vehicleAnnotation, with: image, on: mapView)
@@ -92,13 +103,16 @@ extension VehicleListViewController: MKMapViewDelegate {
             return
         }
         vehicleAnnotation.focused = true
-        print("select vehicle with id = \(vehicleAnnotation.vehicleId)")
+        guard let detailInfo = viewModel.selectVehicle(with: vehicleAnnotation.vehicleId) else {
+            return
+        }
+        updateDetailPresentationInfo(with: detailInfo)
     }
 }
 
 extension VehicleListViewController {
 
-    static func create(with viewModel: VehicleListViewPresenting) -> VehicleListViewController {
+    static func create(with viewModel: VehicleListViewPresenting & VehicleSelecting) -> VehicleListViewController {
         let viewController = VehicleListViewController.instantiateFromNib()
         viewController.viewModel = viewModel
         return viewController

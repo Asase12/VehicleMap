@@ -15,15 +15,15 @@ struct Fixtures {
         [
             Vehicle(id: "10",
                     type: "vehicle",
-                    attributes: VehicleAttributes(batteryLevel: 100, latitude: 52.522893, longitude: 13.378845,
+                    attributes: VehicleAttributes(batteryLevel: 100, latitude: 52.52, longitude: 13.37,
                                                   maxSpeed: 20, vehicleType: .eScooter, hasHelmetBox: false)),
             Vehicle(id: "11",
                     type: "some vehicle",
-                    attributes: VehicleAttributes(batteryLevel: 74, latitude: 52.511028, longitude: 13.378788,
+                    attributes: VehicleAttributes(batteryLevel: 74, latitude: 52.51, longitude: 13.37,
                                                   maxSpeed: 19, vehicleType: .eMoped, hasHelmetBox: true)),
             Vehicle(id: "11",
                     type: "some vehicle",
-                    attributes: VehicleAttributes(batteryLevel: 63, latitude: 52.510255, longitude: 13.368518,
+                    attributes: VehicleAttributes(batteryLevel: 63, latitude: 52.51, longitude: 13.36,
                                                   maxSpeed: 25, vehicleType: .eMoped, hasHelmetBox: true))
         ]
     }
