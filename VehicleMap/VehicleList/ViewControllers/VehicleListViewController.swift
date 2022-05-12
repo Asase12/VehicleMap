@@ -36,8 +36,8 @@ class VehicleListViewController: UIViewController, MapViewViewRendering {
     // MARK: - Private functions
 
     private func configureMapView() {
-        mapView.register(VehicleAnnotation.self,
-                         forAnnotationViewWithReuseIdentifier: MapAnnotationIdentifiers.vehicle)
+        mapView.register(VehicleAnnotation.self, forAnnotationViewWithReuseIdentifier: MapAnnotationIdentifiers.vehicle)
+        mapView.register(VehicleClusterView.self, forAnnotationViewWithReuseIdentifier: MapAnnotationIdentifiers.cluster)
         mapView.delegate = self
     }
 
@@ -70,12 +70,21 @@ class VehicleListViewController: UIViewController, MapViewViewRendering {
 extension VehicleListViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let vehicleAnnotation = annotation as? VehicleAnnotation,
-              // TODO: move the func to viewModel
-              let image = viewModel.vehiclePresentations.first(where: { $0.id == vehicleAnnotation.vehicleId })?.image else {
+        switch annotation {
+        case is VehicleAnnotation:
+            guard let vehicleAnnotation = annotation as? VehicleAnnotation,
+                  // TODO: move the func to viewModel
+                  let image = viewModel.vehiclePresentations.first(where: { $0.id == vehicleAnnotation.vehicleId })?.image else {
+                return nil
+            }
+            let annotationView = vehicleAnnotationView(from: vehicleAnnotation, with: image, on: mapView)
+            annotationView?.clusteringIdentifier = String(describing: VehicleClusterView.self)
+            return annotationView
+        case is MKClusterAnnotation:
+            return mapView.dequeueReusableAnnotationView(withIdentifier: MapAnnotationIdentifiers.cluster, for: annotation)
+        default:
             return nil
         }
-        return vehicleAnnotationView(from: vehicleAnnotation, with: image, on: mapView)
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {

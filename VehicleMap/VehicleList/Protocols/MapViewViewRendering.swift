@@ -10,6 +10,7 @@ import UIKit
 
 struct MapAnnotationIdentifiers {
     static let vehicle = "vehicleAnnotationIdentifier"
+    static let cluster = "clusterAnnotationIdentifier"
 }
 
 protocol MapViewViewRendering {

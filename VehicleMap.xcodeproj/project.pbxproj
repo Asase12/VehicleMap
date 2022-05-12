@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58147984282D61F100CF04EA /* VehicleClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58147983282D61F100CF04EA /* VehicleClusterView.swift */; };
 		5890154D282BE1C70098862C /* VehicleDataDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890154C282BE1C70098862C /* VehicleDataDecodingTests.swift */; };
 		5890154F282BE3050098862C /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890154E282BE3050098862C /* Fixtures.swift */; };
 		58901552282C09EE0098862C /* VehicleAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58901551282C09EE0098862C /* VehicleAnnotation.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58147983282D61F100CF04EA /* VehicleClusterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleClusterView.swift; sourceTree = "<group>"; };
 		5890154C282BE1C70098862C /* VehicleDataDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDataDecodingTests.swift; sourceTree = "<group>"; };
 		5890154E282BE3050098862C /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		58901551282C09EE0098862C /* VehicleAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleAnnotation.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				58901551282C09EE0098862C /* VehicleAnnotation.swift */,
+				58147983282D61F100CF04EA /* VehicleClusterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				58E1E8F328297D740064FEED /* SceneDelegate.swift in Sources */,
 				5891D1AE282B30A800318B0D /* VehicleDataDecoding.swift in Sources */,
 				58901556282C11CA0098862C /* MapViewViewRendering.swift in Sources */,
+				58147984282D61F100CF04EA /* VehicleClusterView.swift in Sources */,
 				5890155A282C3B510098862C /* MKAnnotationViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
