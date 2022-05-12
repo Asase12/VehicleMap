@@ -38,17 +38,6 @@ protocol VehicleSelecting {
     func resetSelection()
 }
 
-protocol DistanceCalculating {
-    func calculateDistance(from startLocation: CLLocation, to endLocation: CLLocation) -> Double
-}
-
-extension DistanceCalculating {
-
-    func calculateDistance(from startLocation: CLLocation, to endLocation: CLLocation) -> Double {
-        startLocation.distance(from: endLocation)
-    }
-}
-
 protocol ClosestVehicle {
     func closestVehicle(to location: CLLocation, from vehicleArray: [Vehicle]) -> Vehicle?
     func updateClosestVehicle(for userLocation: CLLocation)
