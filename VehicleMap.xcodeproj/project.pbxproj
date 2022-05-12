@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		58147984282D61F100CF04EA /* VehicleClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58147983282D61F100CF04EA /* VehicleClusterView.swift */; };
 		58147986282D716300CF04EA /* VehicleDetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58147985282D716300CF04EA /* VehicleDetailInfo.swift */; };
+		58147989282D90B800CF04EA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58147988282D90B800CF04EA /* LocationManager.swift */; };
 		5890154D282BE1C70098862C /* VehicleDataDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890154C282BE1C70098862C /* VehicleDataDecodingTests.swift */; };
 		5890154F282BE3050098862C /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890154E282BE3050098862C /* Fixtures.swift */; };
 		58901552282C09EE0098862C /* VehicleAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58901551282C09EE0098862C /* VehicleAnnotation.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		58147983282D61F100CF04EA /* VehicleClusterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleClusterView.swift; sourceTree = "<group>"; };
 		58147985282D716300CF04EA /* VehicleDetailInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailInfo.swift; sourceTree = "<group>"; };
+		58147988282D90B800CF04EA /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5890154C282BE1C70098862C /* VehicleDataDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDataDecodingTests.swift; sourceTree = "<group>"; };
 		5890154E282BE3050098862C /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		58901551282C09EE0098862C /* VehicleAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleAnnotation.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		58147987282D874D00CF04EA /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				58147988282D90B800CF04EA /* LocationManager.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				5891D18B282AB5EF00318B0D /* VehicleListService.swift in Sources */,
 				58E1E92C28297FF10064FEED /* UIViewControllerExtension.swift in Sources */,
 				5891D190282ABB3A00318B0D /* Vehicle.swift in Sources */,
+				58147989282D90B800CF04EA /* LocationManager.swift in Sources */,
 				5891D198282AC1B600318B0D /* APIError.swift in Sources */,
 				58E1E8F128297D740064FEED /* AppDelegate.swift in Sources */,
 				58E1E8F328297D740064FEED /* SceneDelegate.swift in Sources */,
@@ -588,6 +592,8 @@
 				DEVELOPMENT_TEAM = 9W7P72532Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "VehicleMap/Supporting Files/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "The App uses location services searching for the closest vehicle to the user";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The App uses location services searching for the closest vehicle to the user";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -616,6 +622,8 @@
 				DEVELOPMENT_TEAM = 9W7P72532Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "VehicleMap/Supporting Files/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "The App uses location services searching for the closest vehicle to the user";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The App uses location services searching for the closest vehicle to the user";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

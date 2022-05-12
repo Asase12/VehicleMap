@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let service = VehicleListService()
         let viewModel = VehicleListViewModel(using: service)
         let vehicleListViewController = VehicleListViewController.create(with: viewModel)
+        viewModel.closestVehicleManager = vehicleListViewController
         let navigationViewController = UINavigationController(rootViewController: vehicleListViewController)
         window?.rootViewController = navigationViewController
         window?.makeKeyAndVisible()

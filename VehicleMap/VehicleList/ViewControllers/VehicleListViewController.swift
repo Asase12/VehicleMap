@@ -18,7 +18,7 @@ class VehicleListViewController: UIViewController, MapViewViewRendering {
     @IBOutlet private weak var vehicleLabel: UILabel!
     @IBOutlet private weak var batteryLabel: UILabel!
 
-    private(set) var viewModel: (VehicleListViewPresenting & VehicleSelecting)!
+    private(set) var viewModel: (VehicleListViewPresenting & VehicleSelecting & LocationPermissionModifier)!
 
     // MARK: - View life cycle
 
@@ -27,6 +27,7 @@ class VehicleListViewController: UIViewController, MapViewViewRendering {
         configureNavigationItem()
         configureMapView()
         refreshContent()
+        viewModel.requestLocationPermission()
     }
 
     deinit {
@@ -69,6 +70,7 @@ class VehicleListViewController: UIViewController, MapViewViewRendering {
     }
 
     @objc private func refreshButtonTap() {
+        viewModel.resetSelection()
         refreshContent()
     }
 
@@ -76,6 +78,12 @@ class VehicleListViewController: UIViewController, MapViewViewRendering {
         imageView.image = detailInfo.image
         vehicleLabel.text = detailInfo.vehicleDescription
         batteryLabel.text = detailInfo.batteryLevelDescription
+    }
+
+    private func resetAnnotationSelection() {
+        mapView.annotations.compactMap { $0 as? VehicleAnnotation }.forEach { vehicleAnnotation in
+            vehicleAnnotation.focused = false
+        }
     }
 }
 
@@ -102,6 +110,7 @@ extension VehicleListViewController: MKMapViewDelegate {
         guard let vehicleAnnotation = view.annotation as? VehicleAnnotation else {
             return
         }
+        resetAnnotationSelection()
         vehicleAnnotation.focused = true
         guard let detailInfo = viewModel.selectVehicle(with: vehicleAnnotation.vehicleId) else {
             return
@@ -112,10 +121,21 @@ extension VehicleListViewController: MKMapViewDelegate {
 
 extension VehicleListViewController {
 
-    static func create(with viewModel: VehicleListViewPresenting & VehicleSelecting) -> VehicleListViewController {
+    static func create(with viewModel: VehicleListViewPresenting
+                                       & VehicleSelecting
+                                       & LocationPermissionModifier) -> VehicleListViewController {
         let viewController = VehicleListViewController.instantiateFromNib()
         viewController.viewModel = viewModel
         return viewController
+    }
+}
+
+extension VehicleListViewController: VehicleListViewControllerPresentable {
+
+    func updateClosestVehicle(with vehicleId: String) {
+        let closestVehicleAnnotation = mapView.annotations.compactMap { $0 as? VehicleAnnotation }
+                                                          .first(where: { $0.vehicleId == vehicleId })
+        closestVehicleAnnotation?.focused = true
     }
 }
 

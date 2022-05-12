@@ -19,7 +19,7 @@ struct VehicleDetailInfo {
     }
 
     var batteryLevelDescription: String {
-        "Battery: \(batteryLevel)%"
+        "Battery: \(Int(batteryLevel))%"
     }
 
     var distanceDescription: String {
