@@ -7,9 +7,9 @@
 
 import XCTest
 import UIKit
+import CoreLocation
 
 @testable import VehicleMap
-import CoreLocation
 
 class VehicleListViewModelTests: XCTestCase {
 

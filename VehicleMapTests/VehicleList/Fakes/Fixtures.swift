@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 @testable import VehicleMap
 
@@ -21,10 +22,18 @@ struct Fixtures {
                     type: "some vehicle",
                     attributes: VehicleAttributes(batteryLevel: 74, latitude: 52.51, longitude: 13.37,
                                                   maxSpeed: 19, vehicleType: .eMoped, hasHelmetBox: true)),
-            Vehicle(id: "11",
+            Vehicle(id: "12",
                     type: "some vehicle",
                     attributes: VehicleAttributes(batteryLevel: 63, latitude: 52.51, longitude: 13.36,
                                                   maxSpeed: 25, vehicleType: .eMoped, hasHelmetBox: true))
+        ]
+    }
+
+    static var fakeVehiclePresentations: [VehiclePresentation] {
+        [
+            VehiclePresentation(id: "10", coordinates: CLLocationCoordinate2D(latitude: 52.52, longitude: 13.37)),
+            VehiclePresentation(id: "11", coordinates: CLLocationCoordinate2D(latitude: 52.51, longitude: 13.37)),
+            VehiclePresentation(id: "12", coordinates: CLLocationCoordinate2D(latitude: 52.51, longitude: 13.36))
         ]
     }
 }
