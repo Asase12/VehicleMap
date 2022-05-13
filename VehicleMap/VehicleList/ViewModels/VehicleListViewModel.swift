@@ -74,7 +74,7 @@ final class VehicleListViewModel: DistanceCalculating {
 
     weak var closestVehicleManager: VehicleListViewControllerPresentable?
 
-    private(set) var userLocation: CLLocation? {
+    var userLocation: CLLocation? {
         didSet {
             guard let userLocation = userLocation else { return }
             updateClosestVehicle(for: userLocation)

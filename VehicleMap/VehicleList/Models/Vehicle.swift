@@ -41,13 +41,13 @@ struct VehicleRaw: Codable {
     var data: [Vehicle]
 }
 
-struct Vehicle: Codable {
+struct Vehicle: Codable, Equatable {
     var id: String
     var type: String
     var attributes: VehicleAttributes
 }
 
-struct VehicleAttributes: Codable {
+struct VehicleAttributes: Codable, Equatable {
     var batteryLevel: Double
     var latitude: Double
     var longitude: Double
