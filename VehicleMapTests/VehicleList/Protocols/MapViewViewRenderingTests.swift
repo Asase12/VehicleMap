@@ -7,10 +7,13 @@
 
 import XCTest
 import MapKit
+import UIKit
 
 @testable import VehicleMap
 
 class MapViewViewRenderingTests: XCTestCase {
+
+    let coordinate = CLLocationCoordinate2D(latitude: 52.6, longitude: 13.5)
 
     var renderer: MapViewViewRendering!
     var mapView: MKMapView!
@@ -32,7 +35,6 @@ class MapViewViewRenderingTests: XCTestCase {
     }
 
     func testRenderVehicle() {
-        let coordinate = CLLocationCoordinate2D(latitude: 52.6, longitude: 13.5)
         let vehicleAnnotation = renderer.renderVehicle(with: "11", with: coordinate)
 
         XCTAssertEqual(vehicleAnnotation.vehicleId, "11")
@@ -45,6 +47,24 @@ class MapViewViewRenderingTests: XCTestCase {
         XCTAssertEqual(vehicleAnnotation.annotationView.canShowCallout, false)
         XCTAssertEqual(vehicleAnnotation.annotationView.frame.size.height, 16)
         XCTAssertEqual(vehicleAnnotation.annotationView.frame.size.width, 16)
+    }
+
+    func testCreateVehicleAnnotationViewWhenSuccess() {
+        let annotation = VehicleAnnotation(for: "11", with: coordinate, focused: false)
+        let image = UIImage(named: "scooter")!
+
+        let annotationView = renderer.createVehicleAnnotationView(from: annotation, with: image, on: mapView)
+
+        XCTAssertEqual(annotationView?.image, image)
+        XCTAssertTrue(annotationView?.annotation is VehicleAnnotation)
+    }
+
+    func testClearAll() {
+        mapView.addAnnotations([VehicleAnnotation(for: "11", with: coordinate, focused: false)])
+
+        renderer.clearAll(on: mapView)
+
+        XCTAssertTrue(mapView.annotations.isEmpty)
     }
 }
 

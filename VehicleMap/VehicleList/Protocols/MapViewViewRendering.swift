@@ -17,7 +17,7 @@ protocol MapViewViewRendering {
 
     func present(_ vehicles: [VehiclePresentation], on mapView: MKMapView)
 
-    func vehicleAnnotationView(from annotation: MKAnnotation,
+    func createVehicleAnnotationView(from annotation: MKAnnotation,
                                with image: UIImage,
                                on mapView: MKMapView) -> MKAnnotationView?
 
@@ -40,9 +40,9 @@ extension MapViewViewRendering {
         VehicleAnnotation(for: vehicleId, with: coordinate, focused: false)
     }
 
-    func vehicleAnnotationView(from annotation: MKAnnotation,
-                               with image: UIImage,
-                               on mapView: MKMapView) -> MKAnnotationView? {
+    func createVehicleAnnotationView(from annotation: MKAnnotation,
+                                     with image: UIImage,
+                                     on mapView: MKMapView) -> MKAnnotationView? {
 
         guard let vehicleAnnotation = annotation as? VehicleAnnotation else {
             return nil

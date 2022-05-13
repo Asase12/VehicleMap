@@ -96,7 +96,7 @@ extension VehicleListViewController: MKMapViewDelegate {
                   let image = viewModel.image(for: vehicleAnnotation.vehicleId) else {
                 return nil
             }
-            let annotationView = vehicleAnnotationView(from: vehicleAnnotation, with: image, on: mapView)
+            let annotationView = createVehicleAnnotationView(from: vehicleAnnotation, with: image, on: mapView)
             annotationView?.clusteringIdentifier = String(describing: VehicleClusterView.self)
             return annotationView
         case is MKClusterAnnotation:
