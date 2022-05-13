@@ -10,4 +10,6 @@ If location permission is enabled, it shows the closest vehicle to the user. You
 
 - Tap on the vehicle map annotation, so you can see the vehicle's detail info. Detail info includes the vehicle title, type (e-scooter, e-bike. e-moped), battery level, vehicle image and distance from user location
 
+- Selected vehicle is highlighted with green color on the map
+
 - Refresh button updates the vehicle list. Resets vehicle selection
