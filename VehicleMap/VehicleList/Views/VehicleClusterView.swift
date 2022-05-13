@@ -33,7 +33,7 @@ final class VehicleClusterView: MKAnnotationView {
 
     // MARK: - Functions
 
-    func configure(with annotation: MKAnnotation) {
+    private func configure(with annotation: MKAnnotation) {
         guard let annotation = annotation as? MKClusterAnnotation else {
             return
         }

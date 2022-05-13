@@ -12,6 +12,7 @@
 		58147989282D90B800CF04EA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58147988282D90B800CF04EA /* LocationManager.swift */; };
 		5814798B282DB76500CF04EA /* DistanceCalculating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5814798A282DB76500CF04EA /* DistanceCalculating.swift */; };
 		5814798D282E4A6B00CF04EA /* MapViewViewRenderingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5814798C282E4A6B00CF04EA /* MapViewViewRenderingTests.swift */; };
+		58147990282E525D00CF04EA /* VehicleClusterViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5814798F282E525D00CF04EA /* VehicleClusterViewTests.swift */; };
 		5890154D282BE1C70098862C /* VehicleDataDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890154C282BE1C70098862C /* VehicleDataDecodingTests.swift */; };
 		5890154F282BE3050098862C /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890154E282BE3050098862C /* Fixtures.swift */; };
 		58901552282C09EE0098862C /* VehicleAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58901551282C09EE0098862C /* VehicleAnnotation.swift */; };
@@ -53,6 +54,7 @@
 		58147988282D90B800CF04EA /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5814798A282DB76500CF04EA /* DistanceCalculating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculating.swift; sourceTree = "<group>"; };
 		5814798C282E4A6B00CF04EA /* MapViewViewRenderingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewViewRenderingTests.swift; sourceTree = "<group>"; };
+		5814798F282E525D00CF04EA /* VehicleClusterViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleClusterViewTests.swift; sourceTree = "<group>"; };
 		5890154C282BE1C70098862C /* VehicleDataDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDataDecodingTests.swift; sourceTree = "<group>"; };
 		5890154E282BE3050098862C /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		58901551282C09EE0098862C /* VehicleAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleAnnotation.swift; sourceTree = "<group>"; };
@@ -107,6 +109,14 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		5814798E282E524C00CF04EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5814798F282E525D00CF04EA /* VehicleClusterViewTests.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5890154B282BE1AF0098862C /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +141,7 @@
 				5891D1A1282AD8E000318B0D /* Models */,
 				5890154B282BE1AF0098862C /* Protocols */,
 				5891D19C282AC96B00318B0D /* Fakes */,
+				5814798E282E524C00CF04EA /* Views */,
 				5891D188282AB4CD00318B0D /* ViewModels */,
 			);
 			path = VehicleList;
@@ -446,6 +457,7 @@
 				58E1E90828297D780064FEED /* VehicleListViewModelTests.swift in Sources */,
 				5814798D282E4A6B00CF04EA /* MapViewViewRenderingTests.swift in Sources */,
 				5891D19E282AC97D00318B0D /* FakeVehicleListService.swift in Sources */,
+				58147990282E525D00CF04EA /* VehicleClusterViewTests.swift in Sources */,
 				5891D1A3282AD8EF00318B0D /* VehiclePresentationTests.swift in Sources */,
 				5890154F282BE3050098862C /* Fixtures.swift in Sources */,
 				5890154D282BE1C70098862C /* VehicleDataDecodingTests.swift in Sources */,
